@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="timer.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="timer.Perspective"
+            id="Timer.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="timer.TimeHandler"
+            id="rcpproject.commands.Time"
+            name="Time">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="SayTime">
+            <command
+                  commandId="rcpproject.commands.Time"
+                  icon="icons/time.PNG"
+                  style="push"
+                  tooltip="StartAlarm">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="timeMenu"
+               label="Alarmer">
+            <command
+                  commandId="rcpproject.commands.Time"
+                  icon="icons/time.PNG"
+                  label="Time"
+                  style="push"
+                  tooltip="StartAlarm">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
